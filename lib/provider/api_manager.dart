@@ -1,11 +1,11 @@
 import 'dart:convert';
 
-import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
 import 'package:sistema_experto_pg2/model/response_model.dart';
 
 import '../util/app_type.dart';
+import 'login_provider.dart';
 
 class ApiManager {
   ApiManager._privateConstructor();
@@ -20,16 +20,19 @@ class ApiManager {
     Map<String, String>? uriParams,
   }) async {
     Response response;
-    Uri url = Uri.https(baseUrl, uri);
+    Uri url = Uri.http(baseUrl, uri);
     Map<String, String> headers = {'Content-Type': 'application/json'};
-    //final hasSession = await LoginProvider.shared.existSession();
+    final hasSession = await LoginProvider.shared.existSession();
 
-    /*  if (hasSession) {
-      url = (uriParams != null) ? Uri.https(baseUrl, uri, uriParams) : url;
+    if (hasSession) {
+      url = (uriParams != null) ? Uri.http(baseUrl, uri, uriParams) : url;
 
       final userToken = await LoginProvider.shared.getToken();
-      headers = {'Content-Type': 'application/json', "Authorization": "Bearer $userToken"};
-    }*/
+      headers = {
+        'Content-Type': 'application/json',
+        "Authorization": "Bearer $userToken"
+      };
+    }
 
     switch (type) {
       case HttpType.get:

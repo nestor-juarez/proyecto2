@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sistema_experto_pg2/bloc/authentication_bloc.dart';
 import 'package:sistema_experto_pg2/bloc/login_bloc.dart';
-import 'package:sistema_experto_pg2/model/session_model.dart';
 import 'package:sistema_experto_pg2/repository/session_repository.dart';
 import 'package:sistema_experto_pg2/util/constants.dart';
 import 'package:sistema_experto_pg2/widget/dialogs.dart';
@@ -98,7 +97,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Widget _buildLoginBtn() {
+  Widget _buildLoginBtn(BuildContext mcontext) {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 25.0),
       width: double.infinity,
@@ -113,8 +112,9 @@ class _LoginPageState extends State<LoginPage> {
         ),
         onPressed: () {
           Dialogs.showLoadingDialog(context, _keyLoader, "Iniciando sesión");
-          BlocProvider.of<LoginBloc>(context).add(
-            LoginButtonPressed(email: _emailController.text, password: _pwdController.text),
+          BlocProvider.of<LoginBloc>(mcontext).add(
+            LoginButtonPressed(
+                email: _emailController.text, password: _pwdController.text),
           );
         },
         child: const Text(
@@ -140,7 +140,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  Widget _getBody() {
+  Widget _getBody(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle.light,
       child: GestureDetector(
@@ -190,7 +190,7 @@ class _LoginPageState extends State<LoginPage> {
                     const SizedBox(height: 30.0),
                     _buildPasswordTF(),
                     _buildForgotPasswordBtn(),
-                    _buildLoginBtn(),
+                    _buildLoginBtn(context),
                     _buildSignupBtn(),
                   ],
                 ),
@@ -215,7 +215,7 @@ class _LoginPageState extends State<LoginPage> {
           },
           child: BlocListener<LoginBloc, LoginState>(
             listener: (context, state) {
-              Navigator.of(_keyLoader.currentContext!, rootNavigator: true).pop();
+              //Navigator.of(_keyLoader.currentContext!, rootNavigator: true).pop();
 
               if (state is LoginFaliure) {}
 
@@ -228,7 +228,7 @@ class _LoginPageState extends State<LoginPage> {
             },
             child: BlocBuilder<LoginBloc, LoginState>(
               builder: (context, state) {
-                return _getBody();
+                return _getBody(context);
               },
             ),
           ),

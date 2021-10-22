@@ -1,5 +1,3 @@
-import 'dart:html';
-
 class Session {
   String? name;
   String? lastname;
