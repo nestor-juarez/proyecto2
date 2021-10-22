@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
-class FavouritesPage extends StatelessWidget {
+class ProducctionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
+        //drawer: NavigationDrawerWidget(),
         appBar: AppBar(
-          title: Text('Favourites'),
+          title: Text('Producción'),
           centerTitle: true,
-          backgroundColor: Colors.red,
+          backgroundColor: Color(0xFF0077B6),
         ),
       );
 }

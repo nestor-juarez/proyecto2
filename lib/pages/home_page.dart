@@ -34,9 +34,10 @@ class _MyHomePageState extends State<MyHomePage> {
       drawer: NavigationDrawerWidget(),
 
       appBar: AppBar(
+        backgroundColor: Color(0xFF0077B6),
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text('INICIO'),
+        title: Text('Inicio  Sistema Experto'),
       ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it

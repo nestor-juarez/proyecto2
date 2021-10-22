@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:sistema_experto_pg2/pages/favourites_page.dart';
-import 'package:sistema_experto_pg2/pages/people_page.dart';
+import 'package:sistema_experto_pg2/pages/adc_page.dart';
+import 'package:sistema_experto_pg2/pages/complement_page.dart';
+import 'package:sistema_experto_pg2/pages/notification_page.dart';
+import 'package:sistema_experto_pg2/pages/product_page.dart';
+import 'package:sistema_experto_pg2/pages/production_page.dart';
+import 'package:sistema_experto_pg2/pages/report_page.dart';
 import 'package:sistema_experto_pg2/pages/user_page.dart';
 
 class NavigationDrawerWidget extends StatelessWidget {
@@ -8,14 +12,13 @@ class NavigationDrawerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final name = 'Sarah Abs';
-    final email = 'sarah@abs.com';
-    final urlImage =
-        'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80';
+    final name = 'Nestor Juarez';
+    final email = 'inestordjm@sis.com';
+    final urlImage = 'https://ibb.co/KL36X64';
 
     return Drawer(
       child: Material(
-        color: Color.fromRGBO(50, 75, 205, 1),
+        color: Color(0xFF0077B6),
         child: ListView(
           children: <Widget>[
             buildHeader(
@@ -24,7 +27,7 @@ class NavigationDrawerWidget extends StatelessWidget {
               email: email,
               onClicked: () => Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) => UserPage(
-                  name: 'Sarah Abs',
+                  name: 'Nestor Juarez',
                   urlImage: urlImage,
                 ),
               )),
@@ -37,33 +40,33 @@ class NavigationDrawerWidget extends StatelessWidget {
                   buildSearchField(),
                   const SizedBox(height: 24),
                   buildMenuItem(
-                    text: 'People',
-                    icon: Icons.people,
+                    text: 'Producto',
+                    icon: Icons.wysiwyg,
                     onClicked: () => selectedItem(context, 0),
                   ),
                   const SizedBox(height: 16),
                   buildMenuItem(
-                    text: 'Favourites',
-                    icon: Icons.favorite_border,
+                    text: 'Calidad',
+                    icon: Icons.check_circle_outline,
                     onClicked: () => selectedItem(context, 1),
                   ),
                   const SizedBox(height: 16),
                   buildMenuItem(
-                    text: 'Workflow',
+                    text: 'Producción',
                     icon: Icons.workspaces_outline,
                     onClicked: () => selectedItem(context, 2),
                   ),
                   const SizedBox(height: 16),
                   buildMenuItem(
-                    text: 'Updates',
-                    icon: Icons.update,
+                    text: 'Reportes',
+                    icon: Icons.assessment_outlined,
                     onClicked: () => selectedItem(context, 3),
                   ),
                   const SizedBox(height: 24),
                   Divider(color: Colors.white70),
                   const SizedBox(height: 24),
                   buildMenuItem(
-                    text: 'Plugins',
+                    text: 'Complementos',
                     icon: Icons.account_tree_outlined,
                     onClicked: () => selectedItem(context, 4),
                   ),
@@ -113,8 +116,8 @@ class NavigationDrawerWidget extends StatelessWidget {
               Spacer(),
               CircleAvatar(
                 radius: 24,
-                backgroundColor: Color.fromRGBO(30, 60, 168, 1),
-                child: Icon(Icons.add_comment_outlined, color: Colors.white),
+                backgroundColor: Color(0xFF0077B6),
+                //child: Icon(Icons.add_comment_outlined, color: Colors.white),
               )
             ],
           ),
@@ -128,7 +131,7 @@ class NavigationDrawerWidget extends StatelessWidget {
       style: TextStyle(color: color),
       decoration: InputDecoration(
         contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-        hintText: 'Search',
+        hintText: 'Búsqueda',
         hintStyle: TextStyle(color: color),
         prefixIcon: Icon(Icons.search, color: color),
         filled: true,
@@ -167,12 +170,32 @@ class NavigationDrawerWidget extends StatelessWidget {
     switch (index) {
       case 0:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => PeoplePage(),
+          builder: (context) => ProductPage(),
         ));
         break;
       case 1:
         Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => FavouritesPage(),
+          builder: (context) => ADCPage(),
+        ));
+        break;
+      case 2:
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => ProducctionPage(),
+        ));
+        break;
+      case 3:
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => ReportPage(),
+        ));
+        break;
+      case 4:
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => ComplementPage(),
+        ));
+        break;
+      case 5:
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => NotificationPage(),
         ));
         break;
     }

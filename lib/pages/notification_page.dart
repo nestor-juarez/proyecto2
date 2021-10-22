@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class PeoplePage extends StatelessWidget {
+class NotificationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
         //drawer: NavigationDrawerWidget(),
         appBar: AppBar(
-          title: Text('People'),
+          title: Text('Notificaciones'),
           centerTitle: true,
-          backgroundColor: Colors.green,
+          backgroundColor: Color(0xFF0077B6),
         ),
       );
 }
