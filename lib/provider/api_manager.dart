@@ -13,7 +13,6 @@ class ApiManager {
   static final ApiManager shared = ApiManager._privateConstructor();
 
   Future<ResponseData> request({
-    required BuildContext context,
     required String baseUrl,
     required String uri,
     required HttpType type,
@@ -52,10 +51,10 @@ class ApiManager {
         response = await http.delete(url, headers: headers);
     }
 
-    return _valid(response, context: context);
+    return _valid(response);
   }
 
-  ResponseData _valid(Response response, {required BuildContext context}) {
+  ResponseData _valid(Response response) {
     HttpCode httpCode = ValidHttp.shared.code(response.statusCode);
     ResponseData result = ResponseData();
     result.code = httpCode;
