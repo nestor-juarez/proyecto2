@@ -43,12 +43,13 @@ class DbManager {
 
   initDatabase() async {
     io.Directory documentsDirectory = await getApplicationDocumentsDirectory();
-    String path = join(documentsDirectory.path, "hospital_angeles.db");
+    String path = join(documentsDirectory.path, "proyecto2.db");
     var theDb = await openDatabase(path, version: 1, onCreate: _onCreate);
     return theDb;
   }
 
   Future<void> _onCreate(Database db, int version) async {
     await TableManager.shared.session(db);
+    await TableManager.shared.product(db);
   }
 }

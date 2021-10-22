@@ -5,6 +5,7 @@ class PathUri {
 
   String login = "${BaseUri.shared.complementLogin}/login";
   String signup = "${BaseUri.shared.complementLogin}/signup";
+  String getAllProducts = "${BaseUri.shared.complementProducts}/all";
 }
 
 class BaseUri {
@@ -15,4 +16,5 @@ class BaseUri {
   String apiUrl = '34.125.206.43:8080';
 
   String complementLogin = "/api/users";
+  String complementProducts = "/api/product";
 }

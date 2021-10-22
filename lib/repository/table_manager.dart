@@ -18,4 +18,16 @@ class TableManager {
 
     await db.execute(table);
   }
+
+  Future<void> product(Database db) async {
+    const table = '''CREATE TABLE product
+    (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      product_id TEXT,
+      name TEXT,
+      description TEXT
+    )''';
+
+    await db.execute(table);
+  }
 }
