@@ -112,7 +112,7 @@ class _LineChart extends StatelessWidget {
         interval: 1,
         reservedSize: 40,
         getTextStyles: (context, value) => const TextStyle(
-          color: Color(0xff75729e),
+          color: Colors.grey,
           fontWeight: FontWeight.bold,
           fontSize: 14,
         ),
@@ -124,18 +124,18 @@ class _LineChart extends StatelessWidget {
         margin: 10,
         interval: 1,
         getTextStyles: (context, value) => const TextStyle(
-          color: Color(0xff72719b),
+          color: Colors.grey,
           fontWeight: FontWeight.bold,
           fontSize: 16,
         ),
         getTitles: (value) {
           switch (value.toInt()) {
             case 2:
-              return 'SEPT';
+              return 'AGT';
             case 7:
-              return 'OCT';
+              return 'SEP';
             case 12:
-              return 'DEC';
+              return 'OCT';
           }
           return '';
         },
@@ -146,7 +146,7 @@ class _LineChart extends StatelessWidget {
   FlBorderData get borderData => FlBorderData(
         show: true,
         border: const Border(
-          bottom: BorderSide(color: Color(0xff4e4965), width: 4),
+          bottom: BorderSide(color: Colors.black54, width: 4),
           left: BorderSide(color: Colors.transparent),
           right: BorderSide(color: Colors.transparent),
           top: BorderSide(color: Colors.transparent),
@@ -291,9 +291,9 @@ class LineChartSample1State extends State<LineChartSample1> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               const Text(
-                'Unfold Shop 2018',
+                'Producción 2021',
                 style: TextStyle(
-                  color: Color(0xff827daa),
+                  color: Colors.grey,
                   fontSize: 16,
                 ),
                 textAlign: TextAlign.center,
@@ -302,9 +302,9 @@ class LineChartSample1State extends State<LineChartSample1> {
                 height: 4,
               ),
               const Text(
-                'Monthly Sales',
+                'Meses de Producción',
                 style: TextStyle(
-                  color: Color(0xff827daa),
+                  color: Colors.grey,
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 2,

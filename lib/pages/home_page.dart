@@ -17,7 +17,7 @@ class _MyHomePageState extends State<MyHomePage> {
       drawer: NavigationDrawerWidget(),
       appBar: AppBar(
         backgroundColor: const Color(0xFF0077B6),
-        title: const Text('Dashboard'),
+        title: const Text('Sistema Experto - Envases PET'),
       ),
       body: Container(
         padding: const EdgeInsets.all(5),
@@ -50,12 +50,10 @@ class _MyHomePageState extends State<MyHomePage> {
             width: double.infinity,
             child: Column(
               children: const [
+                Text('Productos',
+                    style: TextStyle(color: Colors.grey, fontSize: 25)),
                 Text(
-                  'Sales by Month',
-                  style: TextStyle(color: Colors.grey, fontSize: 25),
-                ),
-                Text(
-                  '421.3M',
+                  '30 Registros',
                   style: TextStyle(color: Colors.grey, fontSize: 25),
                 ),
                 PieChartSample1()
@@ -71,8 +69,8 @@ class _MyHomePageState extends State<MyHomePage> {
         width: double.infinity,
         child: Column(
           children: const [
-            Text('abc', style: TextStyle(fontSize: 28)),
-            Text('abc', style: TextStyle(fontSize: 17)),
+            Text('Produccion Inicial', style: TextStyle(fontSize: 25)),
+            Text('Efectividad 95%', style: TextStyle(fontSize: 15)),
           ],
         ),
       );
