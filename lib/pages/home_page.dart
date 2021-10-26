@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:sistema_experto_pg2/widget/a.dart';
+import 'package:sistema_experto_pg2/widget/bar_chart.dart';
+import 'package:sistema_experto_pg2/widget/d.dart';
 import 'package:sistema_experto_pg2/widget/navigation_drawer_widget.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -9,57 +12,82 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
       drawer: NavigationDrawerWidget(),
-
       appBar: AppBar(
-        backgroundColor: Color(0xFF0077B6),
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text('Inicio  Sistema Experto'),
+        backgroundColor: const Color(0xFF0077B6),
+        title: const Text('Dashboard'),
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+      body: Container(
+        padding: const EdgeInsets.all(5),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              _getItem1(),
+              const SizedBox(height: 15),
+              _getItem2(),
+              const SizedBox(height: 15),
+              Row(children: [
+                Expanded(child: _getBoxContainer(_getTextItem())),
+                const SizedBox(width: 15),
+                Expanded(child: _getBoxContainer(_getTextItem())),
+              ],),
+              const SizedBox(height: 15),
+              _getItem3(),
+              const SizedBox(height: 15),
+            ],
+          ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+
+  Widget _getItem1() =>
+      _getBoxContainer(
+        SizedBox(
+            width: double.infinity,
+            child: Column(
+              children: const [
+                Text('Sales by Month',
+                  style: TextStyle(color: Colors.grey, fontSize: 25),),
+                Text('421.3M',
+                  style: TextStyle(color: Colors.grey, fontSize: 25),),
+                PieChartSample1()
+              ],
+            )),
+      );
+
+  Widget _getItem2() => _getBoxContainer(BarChartTwo());
+
+  Widget _getItem3() => _getBoxContainer(const LineChartSample1());
+
+
+  Widget _getTextItem() =>
+      SizedBox(
+        width: double.infinity,
+        child: Column(
+          children: const [
+            Text('abc', style: TextStyle(fontSize: 28)),
+            Text('abc', style: TextStyle(fontSize: 17)),
+          ],
+        ),
+      );
+
+  Widget _getBoxContainer(Widget content) =>
+      Container(
+        padding: const EdgeInsets.all(20),
+        decoration: const BoxDecoration(
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                  offset: Offset(2, 5),
+                  color: Colors.black12,
+                  spreadRadius: 3,
+                  blurRadius: 5)
+            ],
+            borderRadius: BorderRadius.all(Radius.circular(20))),
+        child: content,
+      );
 }

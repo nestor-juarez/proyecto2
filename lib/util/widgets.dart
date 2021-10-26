@@ -27,3 +27,34 @@ class TextAreaField extends StatelessWidget {
     );
   }
 }
+
+class TileField extends StatelessWidget {
+  final String content;
+
+  const TileField(this.content, {Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 5),
+      child: Text(this.content, style: TextStyle(fontSize: 20)),
+    );
+  }
+}
+
+class MyFormField extends StatelessWidget {
+  final String text;
+
+  const MyFormField(this.text, {Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        TileField(text),
+        TextAreaField(fallbackMessage: "fallbackMessage", onChange: (a) {})
+      ],
+    );
+  }
+}

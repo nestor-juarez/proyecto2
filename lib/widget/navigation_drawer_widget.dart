@@ -12,7 +12,7 @@ class NavigationDrawerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final name = 'Nestor Juarez';
-    final email = 'inestordjm@sis.com';
+    final email = 'admin@mail.com';
     final urlImage = 'https://i.ibb.co/qWPBdBq/Nestor-Juarez.jpg';
 
     return Drawer(
