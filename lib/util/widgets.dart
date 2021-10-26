@@ -44,7 +44,6 @@ class TileField extends StatelessWidget {
 
 class MyFormField extends StatelessWidget {
   final String text;
-
   const MyFormField(this.text, {Key? key}) : super(key: key);
 
   @override

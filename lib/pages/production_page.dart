@@ -4,7 +4,7 @@ import 'package:sistema_experto_pg2/util/widgets.dart';
 class ProducctionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
-        //drawer: NavigationDrawerWidget(),
+      //drawer: NavigationDrawerWidget(),
       appBar: AppBar(
         title: Text('Producción'),
         centerTitle: true,

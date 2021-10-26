@@ -93,7 +93,7 @@ class PieChartSample1State extends State {
   List<PieChartSectionData> showingSections() {
     return List.generate(
       4,
-      (i) {
+          (i) {
         final isTouched = i == touchedIndex;
         final opacity = isTouched ? 1.0 : 0.6;
 

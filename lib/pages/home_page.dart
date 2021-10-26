@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sistema_experto_pg2/widget/a.dart';
-import 'package:sistema_experto_pg2/widget/bar_chart.dart';
 import 'package:sistema_experto_pg2/widget/d.dart';
 import 'package:sistema_experto_pg2/widget/navigation_drawer_widget.dart';
 
@@ -27,16 +26,18 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               _getItem1(),
               const SizedBox(height: 15),
-              _getItem2(),
-              const SizedBox(height: 15),
-              Row(children: [
-                Expanded(child: _getBoxContainer(_getTextItem())),
-                const SizedBox(width: 15),
-                Expanded(child: _getBoxContainer(_getTextItem())),
-              ],),
+              Row(
+                children: [
+                  Expanded(child: _getBoxContainer(_getTextItem())),
+                  const SizedBox(width: 15),
+                  Expanded(child: _getBoxContainer(_getTextItem())),
+                ],
+              ),
               const SizedBox(height: 15),
               _getItem3(),
               const SizedBox(height: 15),
+              //_getItem2(),
+              //const SizedBox(height: 15),
             ],
           ),
         ),
@@ -44,28 +45,29 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget _getItem1() =>
-      _getBoxContainer(
+  Widget _getItem1() => _getBoxContainer(
         SizedBox(
             width: double.infinity,
             child: Column(
               children: const [
-                Text('Sales by Month',
-                  style: TextStyle(color: Colors.grey, fontSize: 25),),
-                Text('421.3M',
-                  style: TextStyle(color: Colors.grey, fontSize: 25),),
+                Text(
+                  'Sales by Month',
+                  style: TextStyle(color: Colors.grey, fontSize: 25),
+                ),
+                Text(
+                  '421.3M',
+                  style: TextStyle(color: Colors.grey, fontSize: 25),
+                ),
                 PieChartSample1()
               ],
             )),
       );
 
-  Widget _getItem2() => _getBoxContainer(BarChartTwo());
+  //Widget _getItem2() => _getBoxContainer(BarChartTwo());
 
   Widget _getItem3() => _getBoxContainer(const LineChartSample1());
 
-
-  Widget _getTextItem() =>
-      SizedBox(
+  Widget _getTextItem() => SizedBox(
         width: double.infinity,
         child: Column(
           children: const [
@@ -75,8 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       );
 
-  Widget _getBoxContainer(Widget content) =>
-      Container(
+  Widget _getBoxContainer(Widget content) => Container(
         padding: const EdgeInsets.all(20),
         decoration: const BoxDecoration(
             color: Colors.white,
