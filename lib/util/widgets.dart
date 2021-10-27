@@ -57,3 +57,56 @@ class MyFormField extends StatelessWidget {
     );
   }
 }
+
+class TableTitle extends StatelessWidget {
+  final List<String> titleList;
+
+  const TableTitle(this.titleList, {Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: titleList
+            .map<Widget>((e) => Expanded(
+                    child: Text(
+                  e,
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
+                )))
+            .toList(),
+      ),
+      decoration: const BoxDecoration(
+        border: Border(bottom: BorderSide(width: 2, color: Colors.black54)),
+      ),
+    );
+  }
+}
+
+class TableContent extends StatelessWidget {
+  final List<String> contentList;
+
+  const TableContent(this.contentList, {Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: contentList
+            .map<Widget>((e) => Expanded(
+                    child: Text(
+                  e,
+                  textAlign: TextAlign.center,
+                )))
+            .toList(),
+      ),
+      decoration: const BoxDecoration(
+        border: Border(bottom: BorderSide(width: 1, color: Colors.black12)),
+      ),
+    );
+  }
+}

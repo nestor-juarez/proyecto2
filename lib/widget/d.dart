@@ -292,10 +292,7 @@ class LineChartSample1State extends State<LineChartSample1> {
             children: <Widget>[
               const Text(
                 'Producción 2021',
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 16,
-                ),
+                style: TextStyle(color: Colors.grey, fontSize: 25),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(
@@ -303,12 +300,7 @@ class LineChartSample1State extends State<LineChartSample1> {
               ),
               const Text(
                 'Meses de Producción',
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 2,
-                ),
+                style: TextStyle(color: Colors.grey, fontSize: 20),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(

@@ -28,9 +28,13 @@ class _MyHomePageState extends State<MyHomePage> {
               const SizedBox(height: 15),
               Row(
                 children: [
-                  Expanded(child: _getBoxContainer(_getTextItem())),
+                  Expanded(
+                      child: _getBoxContainer(
+                          _getTextItem("Productos solicitados", "50"))),
                   const SizedBox(width: 15),
-                  Expanded(child: _getBoxContainer(_getTextItem())),
+                  Expanded(
+                      child: _getBoxContainer(
+                          _getTextItem("Productos producidos", "150"))),
                 ],
               ),
               const SizedBox(height: 15),
@@ -53,9 +57,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 Text('Productos',
                     style: TextStyle(color: Colors.grey, fontSize: 25)),
                 Text(
-                  '30 Registros',
-                  style: TextStyle(color: Colors.grey, fontSize: 25),
+                  '30 Registros Actualizados',
+                  style: TextStyle(color: Colors.grey, fontSize: 20),
                 ),
+                SizedBox(height: 20),
+                //EdgeInsets.symmetric(vertical: 5),
                 PieChartSample1()
               ],
             )),
@@ -65,12 +71,18 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _getItem3() => _getBoxContainer(const LineChartSample1());
 
-  Widget _getTextItem() => SizedBox(
+  Widget _getTextItem(String title, String content) => SizedBox(
         width: double.infinity,
         child: Column(
-          children: const [
-            Text('Produccion Inicial', style: TextStyle(fontSize: 25)),
-            Text('Efectividad 95%', style: TextStyle(fontSize: 15)),
+          children: [
+            Text(
+              title,
+              style: const TextStyle(color: Colors.grey, fontSize: 25),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 15),
+            Text(content,
+                style: const TextStyle(color: Colors.grey, fontSize: 20)),
           ],
         ),
       );
