@@ -170,7 +170,7 @@ class _LoginPageState extends State<LoginPage> {
                 physics: const AlwaysScrollableScrollPhysics(),
                 padding: const EdgeInsets.symmetric(
                   horizontal: 40.0,
-                  vertical: 120.0,
+                  vertical: 225.0,
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,

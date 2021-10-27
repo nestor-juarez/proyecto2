@@ -70,6 +70,12 @@ class NavigationDrawerWidget extends StatelessWidget {
                     icon: Icons.settings,
                     onClicked: () => selectedItem(context, 5),
                   ),
+                  const SizedBox(height: 140),
+                  buildMenuItem(
+                    text: 'Desarrollo App por Nestor Juarez',
+                    icon: Icons.developer_mode,
+                    //onClicked: () => selectedItem(context, 5),
+                  ),
                 ],
               ),
             ),

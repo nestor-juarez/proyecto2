@@ -49,8 +49,8 @@ class _MyHomePageState extends State<ADCPage> {
                     print('Modificar');
                   }),
               SpeedDialChild(
-                  child: Icon(Icons.delete_outline),
-                  label: 'Eliminar Registro',
+                  child: Icon(Icons.work_off_outlined),
+                  label: 'Deshabilitar',
                   backgroundColor: Colors.redAccent,
                   onTap: () {
                     print('Eliminar');
