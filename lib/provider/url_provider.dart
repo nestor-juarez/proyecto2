@@ -13,7 +13,7 @@ class BaseUri {
 
   static final BaseUri shared = BaseUri._privateConstructor();
 
-  String apiUrl = '34.125.199.201:8080';
+  String apiUrl = '34.125.230.222:8080';
 
   String complementLogin = "/api/users";
   String complementProducts = "/api/product";
